@@ -76,6 +76,9 @@ To ensure the application restarts automatically after a server reboot, follow t
 2.  **Install the Service**:
 
     ```powershell
+    cd nodejs-cron-job
+    pm2 start ecosystem.config.cjs
+    pm2 list
     pm2-startup install
     ```
 
@@ -96,9 +99,9 @@ After restarting the server, verify that the application has started automatical
     npx pm2 list
     ```
 
-    - Check that your app is listed.
-    - Status should be `online`.
-    - `uptime` should be small (indicating it just started).
+    -   Check that your app is listed.
+    -   Status should be `online`.
+    -   `uptime` should be small (indicating it just started).
 
 2.  **Check Windows Service**:
     Verify the PM2 service is running:
@@ -152,5 +155,5 @@ If you need to remove the auto-startup configuration and stop the application (e
     Get-Service *pm2*
     npx pm2 list
     ```
-    - `Get-Service` should return an error or show nothing.
-    - `pm2 list` should show an empty table.
+    -   `Get-Service` should return an error or show nothing.
+    -   `pm2 list` should show an empty table.
